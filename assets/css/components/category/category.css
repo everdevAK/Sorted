@@ -1,0 +1,76 @@
+.category-container {
+    font-family: Verdana, sans-serif
+}
+
+.category-container {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    background-color: var(--cat-main-bg);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: relative;
+}
+
+/* Add category styles */
+#add-category {
+    cursor: pointer;
+}
+
+#add-category .category-logo {
+    background-color: var(--add-category-bg);
+}
+
+#add-category .category-logo .logo {
+    font-size: 1.8rem;
+}
+
+#add-category .category-title {
+    border: 2px dotted var(--add-category-bg);
+}
+/* -------------------- */
+
+.category-logo,
+.category-title {
+    color: var(--cat-main-color);
+    user-select: none;
+}
+
+.category-logo {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cat-highlight);
+}
+
+.logo {
+    font-size: 1.3rem;
+    /* font-weight: bold; */
+    color: var(--main-bg);
+}
+
+.category-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.05rem;
+    text-align: center;
+    border: 2px solid var(--cat-highlight);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: inset 0 0 8px var(--shadow-inset);
+}
+
+
+#delete-category {
+    height: 12px;
+    width: 12px;
+    mask: url("../../../icons/delete-category.svg") center/contain no-repeat;
+    background-color: var(--main-color);
+    position: absolute;
+    right: 8px;
+    top: 10px;
+}

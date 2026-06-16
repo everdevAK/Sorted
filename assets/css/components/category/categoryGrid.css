@@ -1,0 +1,13 @@
+.category-grid {
+    background-color: var(--main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    border-radius: 15px;
+    padding: 30px 10px;
+}

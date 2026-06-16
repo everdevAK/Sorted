@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Tempting";
+    src: url("../../fonts/Tempting.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --font-tempting: "Tempting", sans-serif;
+
+    --main-color: #fff;
+    --main-bg: #111;
+    --secondary-bg: #25242b;
+
+    --svg-bg: rgb(23, 172, 198);
+    --svg-bg-hover: rgb(57, 228, 241);
+
+    /* Category Variables */
+    --cat-main-bg: #222;
+    --cat-main-color: #fff;
+    --shadow-inset: rgb(30, 32, 33);
+    --cat-highlight: rgb(92, 186, 210);
+    --add-category-bg: rgb(75, 174, 75);
+
+    /* Task Variables */
+    --task-container-bg: #302f2f;
+    --task-bg-1: #111;
+    --task-bg-2: #1c1b1b;
+    --check-bg: rgb(67, 68, 68);
+    --check-border: silver;
+    --check-bg-hover: rgb(78, 79, 79);
+    --completed-bg: rgb(64, 212, 64);
+    --edit-bg: rgb(255, 165, 81);
+    --edit-bg-hover: rgb(227, 126, 32);
+    --delete-bg: rgb(224, 67, 65);
+    --delete-bg-hover: rgb(240, 32, 29);
+}

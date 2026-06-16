@@ -1,0 +1,102 @@
+@import "./base/reset.css";  
+@import "./base/variables.css";
+@import "./components/dropdown.css";
+@import "./components/mainHeader.css";
+@import "./components/category/categoryGrid.css";
+@import "./components/category/category.css";
+@import "./components/taskCategory.css";
+@import "./components/task/task.css";
+
+
+#root {
+    background-color: rgb(26, 27, 29);
+    width: 100%;
+    height: 100vh;
+}
+
+.popup {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.popup-container {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid cyan;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0px 0px 8px rgb(61, 193, 211);
+}
+
+.popup-container h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    .popup--info {
+        margin-block: 10px;
+    }
+
+    .popup--info p {
+        line-height: 20px;
+        font-family:'Times New Roman', Times, serif;
+        color: rgb(143, 235, 255)
+    }
+
+
+    .popup--input input{
+        width: 100%;
+        padding: 5px 10px;
+    }
+
+    .popup--input textarea {
+        width: 100%;
+        padding: 5px 10px;
+        min-height: 35px;
+        resize: vertical; /* or none */
+        white-space: pre-wrap;
+        line-height: 1.3;
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+
+.popup--actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+}
+.popup--actions button {
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+
+.popup--actions button:hover {
+    box-shadow: inset 0px 0px 8px rgb(46, 46, 46);
+}
+
+.popup--actions button:first-of-type {
+    background-color: var(--add-category-bg);
+    color: rgb(255, 255, 255);
+    transition: .2s ease;
+}
+
+.popup--actions button:first-of-type:hover {
+    background-color: rgb(5, 120, 5) !important;  
+    color: white;
+}
