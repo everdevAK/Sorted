@@ -1,3 +1,5 @@
+import { deleteBtns, createCategoryBtns, editTaskBtns } from "../../state/store.js";
+import { renderPopup } from "../popup.js";
 
     // <div class="category-container">
     //     <div class="category-logo">
@@ -21,7 +23,8 @@ export function createCategory(title, logo) {
     categoryContainer.addEventListener("click", (e) => {
         //Delete Category Logic:
         if (e.target.id === "delete-category") {
-            console.log("deleteBtn working...");
+            // console.log("deleteBtn working...");
+            renderPopup("Delete Category", "delete", ...deleteBtns);
             return;
         }
 
