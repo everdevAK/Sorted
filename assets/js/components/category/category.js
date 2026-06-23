@@ -31,6 +31,7 @@ export function createCategory(title, logo) {
         //Add Category Logic:
         if (e.target.closest("#add-category")) {
             console.log("Add Category Working...");
+            renderPopup("Create Category", "text", ...createCategoryBtns);
             return;
         }
         
