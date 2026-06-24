@@ -4,6 +4,9 @@ import { createLogo } from "./category/category.js";
 import { capitalize } from "../utils/helpers.js"
 import { store } from "../state/store.js";
 
+import { createMainHeader } from "./mainHeader.js";
+import { createTaskCategoryContainer } from "./taskCategoryContainer.js";
+
 export function createCategoryContainer() {
     const grid = createCategoryGrid();
     
@@ -20,7 +23,16 @@ export function createCategoryContainer() {
         if (e.target.closest(".category-container")
             && e.target.id !== "delete-category"
             && !e.target.closest("#add-category")) {
-            console.log(e.target.textContent + " clicked");
+                const parent = e.target.closest(".category-container");
+                const categoryTitle = parent.querySelector(".category-title").textContent;
+                
+                const rootEl = document.querySelector("#root");
+                rootEl.innerHTML = "";
+                rootEl.appendChild(createMainHeader());
+                rootEl.appendChild(createTaskCategoryContainer(categoryTitle));
+                
+                // console.log(store[categoryTitle.toLowerCase()]);
+                // console.log(categoryTitle + " clicked");
         }
     });
 
