@@ -1,6 +1,8 @@
 import { store } from "../state/store.js";
 import { createDropDown } from "../utils/dom.js";
 
+import { createCategoryContainer } from "./categoryContainer.js";
+ 
 /* <header class="app-header">
     <h1 class="app-title">Sorted</h1>
 
@@ -37,7 +39,11 @@ export function createMainHeader() {
     homeBtn.setAttribute("aria-label", "Home");
     //Home button Logic:
     homeBtn.addEventListener("click", () => {
-        console.log("Home Working...");
+        // console.log("Home Working...");
+        const rootEl = document.querySelector("#root");
+        rootEl.innerHTML = "";
+        rootEl.appendChild(createMainHeader());
+        rootEl.appendChild(createCategoryContainer());
     });
 
     // Menu button
