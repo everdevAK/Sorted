@@ -16,5 +16,13 @@ export function createCategoryContainer() {
         );
     });
 
+    grid.addEventListener("click", (e) => {
+        if (e.target.closest(".category-container")
+            && e.target.id !== "delete-category"
+            && !e.target.closest("#add-category")) {
+            console.log(e.target.textContent + " clicked");
+        }
+    });
+
     return grid;
 }

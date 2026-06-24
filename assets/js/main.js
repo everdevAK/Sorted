@@ -49,7 +49,7 @@ document.addEventListener("click", (e) => {
 // document.body.appendChild(createTaskCategoryContainer("work"));
 
 
-import { deleteBtns, createCategoryBtns, editTaskBtns } from "./state/store.js";
-import { renderPopup } from "./components/popup.js";
+// import { deleteBtns, createCategoryBtns, editTaskBtns } from "./state/store.js";
+// import { renderPopup } from "./components/popup.js";
 
-renderPopup("delete category", "d", ...deleteBtns);
+// renderPopup("delete category", "d", ...deleteBtns);

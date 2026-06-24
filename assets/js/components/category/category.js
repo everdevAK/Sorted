@@ -35,7 +35,7 @@ export function createCategory(title, logo) {
             return;
         }
         
-        console.log("Category working...");
+        // console.log("Category working...");
     });
 
     // Logo container
