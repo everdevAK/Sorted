@@ -1,3 +1,6 @@
+import { deleteBtns, createCategoryBtns, editTaskBtns } from "../../state/store.js";
+import { renderPopup } from "../popup.js";
+
 export function createTaskActions() {
     // <div class="task--actions">
     //     <button id="edit-task" class="edit-task" type="button"></button>
@@ -10,6 +13,9 @@ export function createTaskActions() {
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-task");
     editBtn.type = "button";
+    editBtn.addEventListener("click", () => {
+        renderPopup("Edit Task", "textarea", ...editTaskBtns);
+    });
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-task");
