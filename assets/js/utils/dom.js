@@ -1,4 +1,5 @@
 import { capitalize } from "./helpers.js";
+import { createTaskCategoryContainer } from "../components/taskCategoryContainer.js";
 
 export function closeEl(element, selector) {
     element.classList.remove(selector);
@@ -12,6 +13,11 @@ export function createDropDown(item, container, ...classes) {
     //Menu Items Logic:
     li.addEventListener("click", (e) => {
         console.log(e.target.textContent);
+        const rootEl = document.querySelector("#root");
+        const taskCat = createTaskCategoryContainer(e.target.textContent.toLowerCase());
+        const lastElChild = rootEl.lastElementChild;
+        lastElChild.remove();
+        rootEl.appendChild(taskCat);
     });
 
     container.appendChild(li);
