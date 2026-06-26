@@ -12,12 +12,15 @@ export function createDropDown(item, container, ...classes) {
     li.textContent = capitalize(item);
     //Menu Items Logic:
     li.addEventListener("click", (e) => {
+        if (e.target.closest(".menu-category-item")) {
+            const rootEl = document.querySelector("#root");
+            const taskCat = createTaskCategoryContainer(e.target.textContent.toLowerCase());
+            const lastElChild = rootEl.lastElementChild;
+            lastElChild.remove();
+            rootEl.appendChild(taskCat);
+        }
+
         console.log(e.target.textContent);
-        const rootEl = document.querySelector("#root");
-        const taskCat = createTaskCategoryContainer(e.target.textContent.toLowerCase());
-        const lastElChild = rootEl.lastElementChild;
-        lastElChild.remove();
-        rootEl.appendChild(taskCat);
     });
 
     container.appendChild(li);
