@@ -111,12 +111,18 @@ export function createTaskCategoryActions() {
     filter.setAttribute("role", "button");
     filter.setAttribute("aria-label", "Open filter options");
     filter.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const actionsContainer = e.target.closest(".task--category-actions");
-        const list = actionsContainer.querySelector(".list");
-
-        list.classList.toggle("show");
+        filterList.classList.toggle("show");
     });
+
+    //click to close drop down;
+    document.addEventListener("click", (e) => {
+        const dropdown = document.querySelector(".task--category-actions .filter-list");
+
+        if (!e.target.closest(".task--category-actions")) {
+            dropdown.classList.remove("show");
+        }
+    });
+
     // filter.addEventListener("keydown", (e) => {
     //     if (e.key === "Enter" || e.key === " ") {
     //         filter.click();

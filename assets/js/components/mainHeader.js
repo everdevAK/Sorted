@@ -53,8 +53,17 @@ export function createMainHeader() {
     menuBtn.type = "button";
     menuBtn.setAttribute("aria-label", "Menu");
     menuBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
+        // e.stopPropagation();
         categoryList.classList.toggle("show");
+    });
+
+    //click to close drop down;
+    document.addEventListener("click", (e) => {
+        const dropdown = document.querySelector(".menu-category-list");
+
+        if (!e.target.closest(".header-actions")) {
+            dropdown.classList.remove("show");
+        }
     });
 
     // Category list

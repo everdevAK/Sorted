@@ -22,12 +22,6 @@ renderHome();
 // });
 
 document.addEventListener("click", (e) => {
-    // If the click is NOT inside any open dropdown
-    if (!e.target.closest(".list.show")) {
-        document.querySelectorAll(".list.show")
-            .forEach(dropdown => dropdown.classList.remove("show"));
-    }
-
     // Popup display 
     if (e.target.classList.contains("popup")) {
         e.target.remove();
