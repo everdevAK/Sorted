@@ -46,10 +46,6 @@
     cursor: pointer;
 }
 
-.task--check:hover {
-    background-color: var(--check-bg-hover);
-}
-
 .completed {
     background-color: var(--completed-bg);
 }

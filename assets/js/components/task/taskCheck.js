@@ -9,6 +9,9 @@ export function createTaskCheckBox() {
     const checkBox = document.createElement("div");
     checkBox.id = "task--check";
     checkBox.classList.add("task--check");
+    checkBox.addEventListener("click", () => {
+        checkBox.classList.toggle("completed");
+    });
 
     checkContainer.appendChild(checkBox);
 
