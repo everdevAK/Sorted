@@ -71,8 +71,17 @@ export function renderPopup(title, isInput, ...btns) {
         button.type = "button";
         button.textContent = btn.text;
 
+        // If buttons have ID
+        if (btn.id && btn.id.length > 0) {
+            button.id = btn.id;
+        }
+        // If buttons have ClassName
+        if (btn.className && btn.className.length > 0) {
+            button.classList.add(btn.className);
+        }
+
         if (typeof btn.action === "function") {
-            button.addEventListener("click", (e) => btn.action(e, inputElement?.value));
+            button.addEventListener("click", (e) => btn.action(e, inputElement?.value.toLowerCase()));
         }
 
         actions.appendChild(button);

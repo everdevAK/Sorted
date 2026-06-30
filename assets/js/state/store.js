@@ -1,4 +1,6 @@
 import { loadStore } from "../utils/helpers.js";
+import { createCategoryContainer } from "../components/categoryContainer.js"; 
+import { saveStore } from "../utils/helpers.js";
 
 const defaultStore = {
     categories: ['personal', 'work', 'study', 'health', 'sports'],
@@ -66,12 +68,30 @@ const deleteBtns = [
 const createCategoryBtns = [
   {
     text: "Create",
+    id: "createBtn",
     action: function (e, inputValue) {
-      console.log(inputValue);
+      if (inputValue.length <= 0) return alert("Input is empty.");
+
+      if (store.categories.includes(inputValue)) {
+        alert("Category with the same name already exist.");
+        return;
+      } 
+
+      store.categories.push(inputValue);
+      store[inputValue] = [];
+      saveStore(store);
+
+      const categoryGrid = document.querySelector(".category-grid");
+      categoryGrid.remove();
+
+      const rootEl = document.querySelector("#root");
+      rootEl.appendChild(createCategoryContainer());
+
     }
   },
   {
     text: "Cancel",
+    className: "cancel",
     action: function (e) {
       e.target.closest(".popup").remove();
     }
