@@ -22,7 +22,7 @@
 
 import { capitalize } from "../utils/helpers.js";
 
-export function renderPopup(title, isInput, ...btns) {
+export function renderPopup(title, isInput, btns, categoryName = "null") {
     // Main wrapper
     const popup = document.createElement("div");
     popup.className = "popup";

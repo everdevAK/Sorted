@@ -14,7 +14,7 @@ export function createTaskActions() {
     editBtn.classList.add("edit-task");
     editBtn.type = "button";
     editBtn.addEventListener("click", () => {
-        renderPopup("Edit Task", "textarea", ...editTaskBtns);
+        renderPopup("Edit Task", "textarea", editTaskBtns);
     });
 
     const deleteBtn = document.createElement("button");
