@@ -81,7 +81,7 @@ export function renderPopup(title, isInput, btns, categoryName = "null") {
         }
 
         if (typeof btn.action === "function") {
-            button.addEventListener("click", (e) => btn.action(e, inputElement?.value.toLowerCase()));
+            button.addEventListener("click", (e) => btn.action(e, inputElement?.value.toLowerCase(), categoryName));
         }
 
         actions.appendChild(button);

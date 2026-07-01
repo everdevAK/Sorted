@@ -1,6 +1,5 @@
-import { loadStore } from "../utils/helpers.js";
+import { loadStore, saveStore } from "../utils/helpers.js";
 import { createCategoryContainer } from "../components/categoryContainer.js"; 
-import { saveStore } from "../utils/helpers.js";
 
 const defaultStore = {
     categories: ['personal', 'work', 'study', 'health', 'sports'],
@@ -46,9 +45,17 @@ export function setCategorie(cat) {
 const deleteBtns = [
   {
     text: "Yes, delete",
-    action: function () {
-      console.log("yes");
+    action: function (e, i, categoryName) {
+      store.categories = store.categories.filter(cat => cat !== categoryName);
+      delete store[categoryName];
+      saveStore(store);
+      
+      const rootEl = document.querySelector("#root");
+      rootEl.lastElementChild.remove();
+      rootEl.appendChild(createCategoryContainer());
+
       e.target.closest(".popup").remove();
+      return;
     }
   },
   {

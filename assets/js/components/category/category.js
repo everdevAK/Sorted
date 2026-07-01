@@ -28,12 +28,18 @@ export function createCategory(title, logo) {
         const categoryName = parentEl.querySelector(".title").textContent.toLowerCase();
 
         if (e.target.id === "delete-category") {
-            
-
-            console.log(store);
+            if (store[categoryName].length <= 0) {
+                store.categories = store.categories.filter(cat => cat !== categoryName);
+                delete store[categoryName];
+                saveStore(store);
+                
+                const rootEl = document.querySelector("#root");
+                rootEl.lastElementChild.remove();
+                rootEl.appendChild(createCategoryContainer());
+                return;
+            }
 
             renderPopup("Delete Category", "delete", deleteBtns, categoryName);
-            
             return;
         }
 

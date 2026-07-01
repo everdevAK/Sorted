@@ -3,6 +3,8 @@ import { closeEl } from "./utils/dom.js";
 
 renderHome();
 
+// localStorage.clear();
+
 // document.addEventListener("click", (e) => {
 
 //     if (!e.target.closest(".list.show")) {
@@ -27,7 +29,6 @@ document.addEventListener("click", (e) => {
         e.target.remove();
     }
 });
-
 
 //testing...
 // const filter = document.querySelector(".filter");
