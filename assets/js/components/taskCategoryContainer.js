@@ -118,7 +118,7 @@ export function createTaskCategoryActions() {
     document.addEventListener("click", (e) => {
         const dropdown = document.querySelector(".task--category-actions .filter-list");
 
-        if (!e.target.closest(".task--category-actions .filter")) {
+        if (dropdown && !e.target.closest(".task--category-actions .filter")) {
             dropdown.classList.remove("show");
         }
     });
