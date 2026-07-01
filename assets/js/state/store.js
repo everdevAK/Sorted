@@ -48,6 +48,7 @@ const deleteBtns = [
     text: "Yes, delete",
     action: function () {
       console.log("yes");
+      e.target.closest(".popup").remove();
     }
   },
   {
@@ -87,6 +88,7 @@ const createCategoryBtns = [
       const rootEl = document.querySelector("#root");
       rootEl.appendChild(createCategoryContainer());
 
+      e.target.closest(".popup").remove();
     }
   },
   {
@@ -104,6 +106,7 @@ const editTaskBtns = [
     text: "Edit",
     action: function (e, inputValue) {
       console.log(inputValue);
+      e.target.closest(".popup").remove();
     }
   },
   {
