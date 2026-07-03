@@ -112,11 +112,12 @@ const createCategoryBtns = [
 const editTaskBtns = [
   {
     text: "Edit",
-    action: function (e, inputValue, taskText) {
+    action: function (e, inputValue, task) {
       //Get category name and taskId
-      const taskCategory = taskText.closest(".task-category");
+      const taskCategory = task.closest(".task-category");
       const categoryName = taskCategory.querySelector(".task--category-title").textContent.toLowerCase();
-      const taskId = taskText.closest(".task").id;
+      const taskText = task.querySelector(".task--text");
+      const taskId = task.id;
 
       //Save the edited text in store and change the textContent
       for (const task of store[categoryName]) {
