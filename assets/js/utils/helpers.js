@@ -19,6 +19,10 @@ export function capitalize(str) {
     .join(" ");
 }
 
+export function capStart(str) {
+  return str.trim()[0].toUpperCase() + str.trim().slice(1);
+}
+
 //create Task Object
 export function createTaskObj(text, id) {
     // { id: 4, text: 'cc', isCompleted: false }
