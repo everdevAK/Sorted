@@ -1,37 +1,38 @@
 import { loadStore, saveStore } from "../utils/helpers.js";
 import { createCategoryContainer } from "../components/categoryContainer.js"; 
+import { capStart } from "../utils/helpers.js";
 
 const defaultStore = {
     categories: ['personal', 'work', 'study', 'health', 'sports'],
     personal: [
-        { id: 1, taskText: 'personal', isCompleted: false },
-        { id: 2, taskText: 'aa', isCompleted: false },
-        { id: 3, taskText: 'bb', isCompleted: false },
-        { id: 4, taskText: 'cc', isCompleted: false },
+        { id: "1p", taskText: 'personal', isCompleted: false },
+        { id: "2p", taskText: 'aa', isCompleted: false },
+        { id: "3p", taskText: 'bb', isCompleted: false },
+        { id: "4p", taskText: 'cc', isCompleted: false },
     ],
     work: [
-        { id: 1, taskText: 'work', isCompleted: false },
-        { id: 2, taskText: 'aa', isCompleted: false },
-        { id: 3, taskText: 'bb', isCompleted: false },
-        { id: 4, taskText: 'cc', isCompleted: false }
+        { id: "1w", taskText: 'work', isCompleted: false },
+        { id: "2w", taskText: 'aa', isCompleted: false },
+        { id: "3w", taskText: 'bb', isCompleted: false },
+        { id: "4w", taskText: 'cc', isCompleted: false }
     ],
     study: [
-        { id: 1, taskText: 'study', isCompleted: false },
-        { id: 2, taskText: 'aa', isCompleted: false },
-        { id: 3, taskText: 'bb', isCompleted: false },
-        { id: 4, taskText: 'cc', isCompleted: false }
+        { id: "1s", taskText: 'study', isCompleted: false },
+        { id: "2s", taskText: 'aa', isCompleted: false },
+        { id: "3s", taskText: 'bb', isCompleted: false },
+        { id: "4s", taskText: 'cc', isCompleted: false }
     ],
     health: [
-        { id: 1, taskText: 'health', isCompleted: false },
-        { id: 2, taskText: 'aa', isCompleted: false },
-        { id: 3, taskText: 'bb', isCompleted: false },
-        { id: 4, taskText: 'cc', isCompleted: false }
+        { id: "1h", taskText: 'health', isCompleted: false },
+        { id: "2h", taskText: 'aa', isCompleted: false },
+        { id: "3h", taskText: 'bb', isCompleted: false },
+        { id: "4h", taskText: 'cc', isCompleted: false }
     ],
     sports: [
-        { id: 1, taskText: 'sports', isCompleted: false },
-        { id: 2, taskText: 'aa', isCompleted: false },
-        { id: 3, taskText: 'bb', isCompleted: false },
-        { id: 4, taskText: 'cc', isCompleted: false }
+        { id: "1sp", taskText: 'sports', isCompleted: false },
+        { id: "2sp", taskText: 'aa', isCompleted: false },
+        { id: "3sp", taskText: 'bb', isCompleted: false },
+        { id: "4sp", taskText: 'cc', isCompleted: false }
     ],
 }
 
@@ -111,8 +112,22 @@ const createCategoryBtns = [
 const editTaskBtns = [
   {
     text: "Edit",
-    action: function (e, inputValue) {
-      console.log(inputValue);
+    action: function (e, inputValue, taskText) {
+      //Get category name and taskId
+      const taskCategory = taskText.closest(".task-category");
+      const categoryName = taskCategory.querySelector(".task--category-title").textContent.toLowerCase();
+      const taskId = taskText.closest(".task").id;
+
+      //Save the edited text in store and change the textContent
+      for (const task of store[categoryName]) {
+        if (task.id === taskId) {
+          task.taskText = capStart(inputValue);
+          saveStore(store);
+          taskText.textContent = task.taskText;
+          break;
+        }
+      }
+
       e.target.closest(".popup").remove();
     }
   },

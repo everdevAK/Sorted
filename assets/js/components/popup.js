@@ -22,7 +22,7 @@
 
 import { capitalize } from "../utils/helpers.js";
 
-export function renderPopup(title, isInput, btns, categoryName = "null") {
+export function renderPopup(title, isInput, btns, extraInfo = "null") {
     // Main wrapper
     const popup = document.createElement("div");
     popup.className = "popup";
@@ -81,7 +81,7 @@ export function renderPopup(title, isInput, btns, categoryName = "null") {
         }
 
         if (typeof btn.action === "function") {
-            button.addEventListener("click", (e) => btn.action(e, inputElement?.value.toLowerCase(), categoryName));
+            button.addEventListener("click", (e) => btn.action(e, inputElement?.value.toLowerCase(), extraInfo));
         }
 
         actions.appendChild(button);

@@ -13,8 +13,10 @@ export function createTaskActions() {
     const editBtn = document.createElement("button");
     editBtn.classList.add("edit-task");
     editBtn.type = "button";
-    editBtn.addEventListener("click", () => {
-        renderPopup("Edit Task", "textarea", editTaskBtns);
+    editBtn.addEventListener("click", (e) => {
+        const parent = e.target.closest(".task");
+        const taskText = parent.querySelector(".task--text");
+        renderPopup("Edit Task", "textarea", editTaskBtns, taskText);
     });
 
     const deleteBtn = document.createElement("button");
