@@ -19,8 +19,6 @@ export function createDropDown(item, container, ...classes) {
             lastElChild.remove();
             rootEl.appendChild(taskCat);
         }
-
-        console.log(e.target.textContent);
     });
 
     container.appendChild(li);
