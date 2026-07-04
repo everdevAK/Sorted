@@ -7,7 +7,11 @@ export function createTaskContainer(categoryName) {
     container.classList.add("task-container");
 
     store[categoryName.toLowerCase()].forEach(task => {
-        container.appendChild(createTask(task.taskText, task.id));
+        const taskEl = createTask(task.taskText, task.id);
+        const taskCheck = taskEl.querySelector(".task--check");
+
+        if (task.isCompleted === true) taskCheck.classList.add("completed");
+        container.appendChild(taskEl);
     });
 
     return container;
