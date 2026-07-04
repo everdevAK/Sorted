@@ -1,6 +1,7 @@
 import { deleteBtns, createCategoryBtns, editTaskBtns, store } from "../../state/store.js";
 import { saveStore } from "../../utils/helpers.js";
 import { renderPopup } from "../popup.js";
+import { getCategoryName } from "../../utils/dom.js";
 
 export function createTaskActions() {
     // <div class="task--actions">
@@ -23,8 +24,7 @@ export function createTaskActions() {
     deleteBtn.classList.add("delete-task");
     deleteBtn.type = "button";
     deleteBtn.addEventListener("click", (e) => {
-        const taskCategory = e.target.closest(".task-category");
-        const categroyName = taskCategory.querySelector(".task--category-title").textContent.toLowerCase();
+        const categroyName = getCategoryName(e.target.closest(".task-category"), ".task--category-title");
         const taskId = e.target.closest(".task").id;
         
         store[categroyName] = store[categroyName].filter(task => task.id !== taskId);

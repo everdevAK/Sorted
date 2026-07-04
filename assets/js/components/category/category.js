@@ -2,6 +2,7 @@ import { deleteBtns, createCategoryBtns, editTaskBtns, store } from "../../state
 import { renderPopup } from "../popup.js";
 import { saveStore } from "../../utils/helpers.js";
 import { createCategoryContainer } from "../categoryContainer.js";
+import { getCategoryName } from "../../utils/dom.js";
 
     // <div class="category-container">
     //     <div class="category-logo">
@@ -24,8 +25,7 @@ export function createCategory(title, logo) {
     //Deligating All Category Logic Here:
     categoryContainer.addEventListener("click", (e) => {
         //Delete Category Logic:
-        const parentEl = e.target.closest(".category-container");
-        const categoryName = parentEl.querySelector(".title").textContent.toLowerCase();
+        const categoryName = getCategoryName(e.target.closest(".category-container"), ".title");
 
         if (e.target.id === "delete-category") {
             if (store[categoryName].length <= 0) {
@@ -45,12 +45,10 @@ export function createCategory(title, logo) {
 
         //Add Category Logic:
         if (e.target.closest("#add-category")) {
-            console.log("Add Category Working...");
             renderPopup("Create Category", "text", createCategoryBtns);
             return;
         }
         
-        // console.log("Category working...");
     });
 
     // Logo container
