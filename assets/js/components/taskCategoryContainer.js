@@ -25,14 +25,15 @@
 
 import { createDropDown } from "../utils/dom.js";
 import { createTaskContainer } from "./taskContainer.js";
-import { capitalize } from "../utils/helpers.js";
+import { capitalize, capStart, createTaskObj, createId, saveStore } from "../utils/helpers.js";
+import { store } from "../state/store.js";
 
 export function createTaskCategoryContainer(categoryName) {
     const mainWrapper = document.createElement("div");
     mainWrapper.classList.add("task-category");
 
     const header = createTaskCategoryHeader(categoryName);
-    const input = createTaskCategoryInput();
+    const input = createTaskCategoryInput(categoryName.toLowerCase());
     const actions = createTaskCategoryActions();
     const taskContainer = createTaskContainer(categoryName);
 
@@ -58,7 +59,7 @@ export function createTaskCategoryHeader(categoryName) {
     return header;
 }
 
-export function createTaskCategoryInput() {
+export function createTaskCategoryInput(categoryName) {
     // <div class="task--category-input">
     //     <input id="user-task-input" type="text" placeholder="Enter task...">
     //     <button type="button" id="add-task">Add</button>
@@ -78,8 +79,22 @@ export function createTaskCategoryInput() {
     button.id = "add-task";
     button.textContent = "Add";
 
-    // Add logic later if needed
-    // button.addEventListener("click", () => { ... });
+    button.addEventListener("click", () => { 
+        const taskInput = capStart(input.value);
+
+        if (store[categoryName].some(task => task.taskText === taskInput)) {
+            alert("Task already exists.");
+            return;
+        }
+
+        store[categoryName].push(createTaskObj(taskInput, createId()));
+        saveStore(store);
+        
+        const rootEl = document.querySelector("#root");
+        rootEl.lastElementChild.remove();
+        rootEl.appendChild(createTaskCategoryContainer(categoryName));
+
+    });
 
     wrapper.appendChild(input);
     wrapper.appendChild(button);
