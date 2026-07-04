@@ -5,34 +5,34 @@ import { capStart } from "../utils/helpers.js";
 const defaultStore = {
     categories: ['personal', 'work', 'study', 'health', 'sports'],
     personal: [
-        { id: "1p", taskText: 'personal', isCompleted: false },
-        { id: "2p", taskText: 'aa', isCompleted: false },
-        { id: "3p", taskText: 'bb', isCompleted: false },
-        { id: "4p", taskText: 'cc', isCompleted: false },
+        { id: "1p", taskText: 'Personal', isCompleted: false },
+        { id: "2p", taskText: 'Aa', isCompleted: false },
+        { id: "3p", taskText: 'Bb', isCompleted: false },
+        { id: "4p", taskText: 'Cc', isCompleted: false },
     ],
     work: [
-        { id: "1w", taskText: 'work', isCompleted: false },
-        { id: "2w", taskText: 'aa', isCompleted: false },
-        { id: "3w", taskText: 'bb', isCompleted: false },
-        { id: "4w", taskText: 'cc', isCompleted: false }
+        { id: "1w", taskText: 'Work', isCompleted: false },
+        { id: "2w", taskText: 'Aa', isCompleted: false },
+        { id: "3w", taskText: 'Bb', isCompleted: false },
+        { id: "4w", taskText: 'Cc', isCompleted: false }
     ],
     study: [
-        { id: "1s", taskText: 'study', isCompleted: false },
-        { id: "2s", taskText: 'aa', isCompleted: false },
-        { id: "3s", taskText: 'bb', isCompleted: false },
-        { id: "4s", taskText: 'cc', isCompleted: false }
+        { id: "1s", taskText: 'Study', isCompleted: false },
+        { id: "2s", taskText: 'Aa', isCompleted: false },
+        { id: "3s", taskText: 'Bb', isCompleted: false },
+        { id: "4s", taskText: 'Cc', isCompleted: false }
     ],
     health: [
-        { id: "1h", taskText: 'health', isCompleted: false },
-        { id: "2h", taskText: 'aa', isCompleted: false },
-        { id: "3h", taskText: 'bb', isCompleted: false },
-        { id: "4h", taskText: 'cc', isCompleted: false }
+        { id: "1h", taskText: 'Health', isCompleted: false },
+        { id: "2h", taskText: 'Aa', isCompleted: false },
+        { id: "3h", taskText: 'Bb', isCompleted: false },
+        { id: "4h", taskText: 'Cc', isCompleted: false }
     ],
     sports: [
-        { id: "1sp", taskText: 'sports', isCompleted: false },
-        { id: "2sp", taskText: 'aa', isCompleted: false },
-        { id: "3sp", taskText: 'bb', isCompleted: false },
-        { id: "4sp", taskText: 'cc', isCompleted: false }
+        { id: "1sp", taskText: 'Sports', isCompleted: false },
+        { id: "2sp", taskText: 'Aa', isCompleted: false },
+        { id: "3sp", taskText: 'Bb', isCompleted: false },
+        { id: "4sp", taskText: 'Cc', isCompleted: false }
     ],
 }
 
