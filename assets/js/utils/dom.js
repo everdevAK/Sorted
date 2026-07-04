@@ -25,3 +25,11 @@ export function createDropDown(item, container, ...classes) {
 
     container.appendChild(li);
 }
+
+//Get category name for active task category
+export function getCategoryName(parent, targetClass) {
+    const parentEl = parent;
+    const categoryName = parentEl.querySelector(targetClass);
+
+    return categoryName.textContent.toLowerCase();
+}
