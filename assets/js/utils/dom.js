@@ -18,6 +18,11 @@ export function createDropDown(item, container, ...classes) {
             const lastElChild = rootEl.lastElementChild;
             lastElChild.remove();
             rootEl.appendChild(taskCat);
+            
+            //Temp bug fix
+            if (container.classList.contains("show")) {
+                container.classList.toggle("show");
+            }
         }
     });
 
