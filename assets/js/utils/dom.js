@@ -23,7 +23,31 @@ export function createDropDown(item, container, ...classes) {
             if (container.classList.contains("show")) {
                 container.classList.toggle("show");
             }
-        }
+        } 
+
+        if (e.target.closest(".task--category-actions")) {
+            const target = e.target.textContent.trim();
+            const taskCategory = e.target.closest(".task-category");
+            const tasks = taskCategory.querySelectorAll(".task");
+
+            tasks.forEach(task => {
+                const isCompleted = task
+                    .querySelector(".task--check")
+                    .classList.contains("completed");
+
+                if (target === "All") {
+                    task.style.display = "flex";
+                }
+
+                if (target === "Completed") {
+                    task.style.display = isCompleted ? "flex" : "none";
+                }
+
+                if (target === "Pending") {
+                    task.style.display = !isCompleted ? "flex" : "none";
+                }
+            });
+        }  
     });
 
     container.appendChild(li);
